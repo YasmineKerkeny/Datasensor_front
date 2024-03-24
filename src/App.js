@@ -8,28 +8,10 @@ import { fetchSensorData } from './api';
 
 
 function App() {
-  const [initialFetchDone, setInitialFetchDone] = useState(false);
-  const frequency = 30000; // in ms 
+   // in ms 
 
-  useEffect(() => {
-    // Fetch data immediately when component mounts
-    fetchData();
-    setInitialFetchDone(true);
-
-    // Fetch data periodically
-    const intervalId = setInterval(fetchData, frequency);
-
-    // Cleanup function to clear the interval when component unmounts or when dependencies change
-    return () => clearInterval(intervalId);
-  }, []); 
-
-  const fetchData = () => {
-    fetchSensorData().then(() => {
-      console.log('Sensor data fetched successfully.');
-    }).catch(error => {
-      console.error('Error fetching sensor data:', error);
-    });
-  };
+  
+  
   return (
     <div className="App">
       <BrowserRouter>
